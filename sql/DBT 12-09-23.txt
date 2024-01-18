@@ -1,0 +1,605 @@
+Microsoft Windows [Version 10.0.19045.3324]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Admn>mysql --host=192.168.100.80 --port=3306 --user=saleel--password=saleel saleel
+ERROR 1045 (28000): Access denied for user 'saleel--password=saleel'@'Administrator16.infoway.com' (using password: NO)
+
+C:\Users\Admn>mysql --host=192.168.100.80 --port=3306 --user=saleel --password=saleel saleel
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 301
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| saleel     |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show engines;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+9 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_saleel |
++------------------+
+| emp              |
+| t1               |
+| t2               |
+| t3               |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc emp;
++----------+---------------+------+-----+---------+-------------------+
+| Field    | Type          | Null | Key | Default | Extra             |
++----------+---------------+------+-----+---------+-------------------+
+| id       | int           | NO   | PRI | NULL    | auto_increment    |
+| ename    | varchar(10)   | NO   |     | NULL    |                   |
+| city     | varchar(10)   | YES  |     | pune    |                   |
+| comm     | int           | YES  |     | NULL    |                   |
+| sal      | int           | YES  |     | NULL    |                   |
+| total    | int           | YES  |     | NULL    | VIRTUAL GENERATED |
+| isActive | tinyint(1)    | YES  |     | NULL    | INVISIBLE         |
+| password | varbinary(10) | YES  |     | NULL    |                   |
++----------+---------------+------+-----+---------+-------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp;
++----+--------+--------+------+------+-------+--------------------+
+| id | ename  | city   | comm | sal  | total | password           |
++----+--------+--------+------+------+-------+--------------------+
+|  1 | saleel | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 |        | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 |        | pune   | NULL | NULL |  NULL | NULL               |
+|  4 |        | pune   | NULL | NULL |  NULL | NULL               |
++----+--------+--------+------+------+-------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc information_schema.tables;
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                               | Null | Key | Default | Extra |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| TABLE_CATALOG   | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_SCHEMA    | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_NAME      | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_TYPE      | enum('BASE TABLE','VIEW','SYSTEM VIEW')                            | NO   |     | NULL    |       |
+| ENGINE          | varchar(64)                                                        | YES  |     | NULL    |       |
+| VERSION         | int                                                                | YES  |     | NULL    |       |
+| ROW_FORMAT      | enum('Fixed','Dynamic','Compressed','Redundant','Compact','Paged') | YES  |     | NULL    |       |
+| TABLE_ROWS      | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AVG_ROW_LENGTH  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_LENGTH     | bigint unsigned                                                    | YES  |     | NULL    |       |
+| MAX_DATA_LENGTH | bigint unsigned                                                    | YES  |     | NULL    |       |
+| INDEX_LENGTH    | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_FREE       | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AUTO_INCREMENT  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| CREATE_TIME     | timestamp                                                          | NO   |     | NULL    |       |
+| UPDATE_TIME     | datetime                                                           | YES  |     | NULL    |       |
+| CHECK_TIME      | datetime                                                           | YES  |     | NULL    |       |
+| TABLE_COLLATION | varchar(64)                                                        | YES  |     | NULL    |       |
+| CHECKSUM        | bigint                                                             | YES  |     | NULL    |       |
+| CREATE_OPTIONS  | varchar(256)                                                       | YES  |     | NULL    |       |
+| TABLE_COMMENT   | text                                                               | YES  |     | NULL    |       |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+21 rows in set (0.00 sec)
+
+mysql>
+mysql> desc information_schema.tables;
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                               | Null | Key | Default | Extra |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| TABLE_CATALOG   | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_SCHEMA    | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_NAME      | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_TYPE      | enum('BASE TABLE','VIEW','SYSTEM VIEW')                            | NO   |     | NULL    |       |
+| ENGINE          | varchar(64)                                                        | YES  |     | NULL    |       |
+| VERSION         | int                                                                | YES  |     | NULL    |       |
+| ROW_FORMAT      | enum('Fixed','Dynamic','Compressed','Redundant','Compact','Paged') | YES  |     | NULL    |       |
+| TABLE_ROWS      | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AVG_ROW_LENGTH  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_LENGTH     | bigint unsigned                                                    | YES  |     | NULL    |       |
+| MAX_DATA_LENGTH | bigint unsigned                                                    | YES  |     | NULL    |       |
+| INDEX_LENGTH    | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_FREE       | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AUTO_INCREMENT  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| CREATE_TIME     | timestamp                                                          | NO   |     | NULL    |       |
+| UPDATE_TIME     | datetime                                                           | YES  |     | NULL    |       |
+| CHECK_TIME      | datetime                                                           | YES  |     | NULL    |       |
+| TABLE_COLLATION | varchar(64)                                                        | YES  |     | NULL    |       |
+| CHECKSUM        | bigint                                                             | YES  |     | NULL    |       |
+| CREATE_OPTIONS  | varchar(256)                                                       | YES  |     | NULL    |       |
+| TABLE_COMMENT   | text                                                               | YES  |     | NULL    |       |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+21 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> desc information_schema.tables;
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                               | Null | Key | Default | Extra |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| TABLE_CATALOG   | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_SCHEMA    | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_NAME      | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_TYPE      | enum('BASE TABLE','VIEW','SYSTEM VIEW')                            | NO   |     | NULL    |       |
+| ENGINE          | varchar(64)                                                        | YES  |     | NULL    |       |
+| VERSION         | int                                                                | YES  |     | NULL    |       |
+| ROW_FORMAT      | enum('Fixed','Dynamic','Compressed','Redundant','Compact','Paged') | YES  |     | NULL    |       |
+| TABLE_ROWS      | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AVG_ROW_LENGTH  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_LENGTH     | bigint unsigned                                                    | YES  |     | NULL    |       |
+| MAX_DATA_LENGTH | bigint unsigned                                                    | YES  |     | NULL    |       |
+| INDEX_LENGTH    | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_FREE       | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AUTO_INCREMENT  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| CREATE_TIME     | timestamp                                                          | NO   |     | NULL    |       |
+| UPDATE_TIME     | datetime                                                           | YES  |     | NULL    |       |
+| CHECK_TIME      | datetime                                                           | YES  |     | NULL    |       |
+| TABLE_COLLATION | varchar(64)                                                        | YES  |     | NULL    |       |
+| CHECKSUM        | bigint                                                             | YES  |     | NULL    |       |
+| CREATE_OPTIONS  | varchar(256)                                                       | YES  |     | NULL    |       |
+| TABLE_COMMENT   | text                                                               | YES  |     | NULL    |       |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+21 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> desc information_schema.tables;
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                               | Null | Key | Default | Extra |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+| TABLE_CATALOG   | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_SCHEMA    | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_NAME      | varchar(64)                                                        | YES  |     | NULL    |       |
+| TABLE_TYPE      | enum('BASE TABLE','VIEW','SYSTEM VIEW')                            | NO   |     | NULL    |       |
+| ENGINE          | varchar(64)                                                        | YES  |     | NULL    |       |
+| VERSION         | int                                                                | YES  |     | NULL    |       |
+| ROW_FORMAT      | enum('Fixed','Dynamic','Compressed','Redundant','Compact','Paged') | YES  |     | NULL    |       |
+| TABLE_ROWS      | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AVG_ROW_LENGTH  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_LENGTH     | bigint unsigned                                                    | YES  |     | NULL    |       |
+| MAX_DATA_LENGTH | bigint unsigned                                                    | YES  |     | NULL    |       |
+| INDEX_LENGTH    | bigint unsigned                                                    | YES  |     | NULL    |       |
+| DATA_FREE       | bigint unsigned                                                    | YES  |     | NULL    |       |
+| AUTO_INCREMENT  | bigint unsigned                                                    | YES  |     | NULL    |       |
+| CREATE_TIME     | timestamp                                                          | NO   |     | NULL    |       |
+| UPDATE_TIME     | datetime                                                           | YES  |     | NULL    |       |
+| CHECK_TIME      | datetime                                                           | YES  |     | NULL    |       |
+| TABLE_COLLATION | varchar(64)                                                        | YES  |     | NULL    |       |
+| CHECKSUM        | bigint                                                             | YES  |     | NULL    |       |
+| CREATE_OPTIONS  | varchar(256)                                                       | YES  |     | NULL    |       |
+| TABLE_COMMENT   | text                                                               | YES  |     | NULL    |       |
++-----------------+--------------------------------------------------------------------+------+-----+---------+-------+
+21 rows in set (0.00 sec)
+
+mysql> select TABLE_NAME,TABLE_TYPE,ENGINE,TABLE_ROWS,AUTO_INCREMENT from information_schema where TABLE_SCHEMA='saleel';
+ERROR 1146 (42S02): Table 'saleel.information_schema' doesn't exist
+mysql> select TABLE_NAME,TABLE_TYPE,ENGINE,TABLE_ROWS,AUTO_INCREMENT from information_schema.tables where TABLE_SCHEMA='saleel';
++------------+------------+--------+------------+----------------+
+| TABLE_NAME | TABLE_TYPE | ENGINE | TABLE_ROWS | AUTO_INCREMENT |
++------------+------------+--------+------------+----------------+
+| emp        | BASE TABLE | InnoDB |          1 |              5 |
+| t1         | BASE TABLE | InnoDB |         10 |           NULL |
+| t2         | BASE TABLE | InnoDB |          1 |           NULL |
+| t3         | BASE TABLE | InnoDB |          1 |           NULL |
++------------+------------+--------+------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> desc emp;
++----------+---------------+------+-----+---------+-------------------+
+| Field    | Type          | Null | Key | Default | Extra             |
++----------+---------------+------+-----+---------+-------------------+
+| id       | int           | NO   | PRI | NULL    | auto_increment    |
+| ename    | varchar(10)   | NO   |     | NULL    |                   |
+| city     | varchar(10)   | YES  |     | pune    |                   |
+| comm     | int           | YES  |     | NULL    |                   |
+| sal      | int           | YES  |     | NULL    |                   |
+| total    | int           | YES  |     | NULL    | VIRTUAL GENERATED |
+| isActive | tinyint(1)    | YES  |     | NULL    | INVISIBLE         |
+| password | varbinary(10) | YES  |     | NULL    |                   |
++----------+---------------+------+-----+---------+-------------------+
+8 rows in set (0.00 sec)
+
+mysql> desc information_schema.columns
+    -> ;
++--------------------------+----------------------------+------+-----+---------+-------+
+| Field                    | Type                       | Null | Key | Default | Extra |
++--------------------------+----------------------------+------+-----+---------+-------+
+| TABLE_CATALOG            | varchar(64)                | YES  |     | NULL    |       |
+| TABLE_SCHEMA             | varchar(64)                | YES  |     | NULL    |       |
+| TABLE_NAME               | varchar(64)                | YES  |     | NULL    |       |
+| COLUMN_NAME              | varchar(64)                | YES  |     | NULL    |       |
+| ORDINAL_POSITION         | int unsigned               | NO   |     | NULL    |       |
+| COLUMN_DEFAULT           | text                       | YES  |     | NULL    |       |
+| IS_NULLABLE              | varchar(3)                 | NO   |     |         |       |
+| DATA_TYPE                | longtext                   | YES  |     | NULL    |       |
+| CHARACTER_MAXIMUM_LENGTH | bigint                     | YES  |     | NULL    |       |
+| CHARACTER_OCTET_LENGTH   | bigint                     | YES  |     | NULL    |       |
+| NUMERIC_PRECISION        | bigint unsigned            | YES  |     | NULL    |       |
+| NUMERIC_SCALE            | bigint unsigned            | YES  |     | NULL    |       |
+| DATETIME_PRECISION       | int unsigned               | YES  |     | NULL    |       |
+| CHARACTER_SET_NAME       | varchar(64)                | YES  |     | NULL    |       |
+| COLLATION_NAME           | varchar(64)                | YES  |     | NULL    |       |
+| COLUMN_TYPE              | mediumtext                 | NO   |     | NULL    |       |
+| COLUMN_KEY               | enum('','PRI','UNI','MUL') | NO   |     | NULL    |       |
+| EXTRA                    | varchar(256)               | YES  |     | NULL    |       |
+| PRIVILEGES               | varchar(154)               | YES  |     | NULL    |       |
+| COLUMN_COMMENT           | text                       | NO   |     | NULL    |       |
+| GENERATION_EXPRESSION    | longtext                   | NO   |     | NULL    |       |
+| SRS_ID                   | int unsigned               | YES  |     | NULL    |       |
++--------------------------+----------------------------+------+-----+---------+-------+
+22 rows in set (0.00 sec)
+
+mysql> desc emp;
++----------+---------------+------+-----+---------+-------------------+
+| Field    | Type          | Null | Key | Default | Extra             |
++----------+---------------+------+-----+---------+-------------------+
+| id       | int           | NO   | PRI | NULL    | auto_increment    |
+| ename    | varchar(10)   | NO   |     | NULL    |                   |
+| city     | varchar(10)   | YES  |     | pune    |                   |
+| comm     | int           | YES  |     | NULL    |                   |
+| sal      | int           | YES  |     | NULL    |                   |
+| total    | int           | YES  |     | NULL    | VIRTUAL GENERATED |
+| isActive | tinyint(1)    | YES  |     | NULL    | INVISIBLE         |
+| password | varbinary(10) | YES  |     | NULL    |                   |
++----------+---------------+------+-----+---------+-------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp;
++----+--------+--------+------+------+-------+--------------------+
+| id | ename  | city   | comm | sal  | total | password           |
++----+--------+--------+------+------+-------+--------------------+
+|  1 | saleel | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 |        | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 |        | pune   | NULL | NULL |  NULL | NULL               |
+|  4 |        | pune   | NULL | NULL |  NULL | NULL               |
++----+--------+--------+------+------+-------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set ename='sharmin' ;
+Query OK, 4 rows affected (0.02 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from emp;
++----+---------+--------+------+------+-------+--------------------+
+| id | ename   | city   | comm | sal  | total | password           |
++----+---------+--------+------+------+-------+--------------------+
+|  1 | sharmin | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 | sharmin | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 | sharmin | pune   | NULL | NULL |  NULL | NULL               |
+|  4 | sharmin | pune   | NULL | NULL |  NULL | NULL               |
++----+---------+--------+------+------+-------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from emp;
++----+--------+--------+------+------+-------+--------------------+
+| id | ename  | city   | comm | sal  | total | password           |
++----+--------+--------+------+------+-------+--------------------+
+|  1 | saleel | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 |        | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 |        | pune   | NULL | NULL |  NULL | NULL               |
+|  4 |        | pune   | NULL | NULL |  NULL | NULL               |
++----+--------+--------+------+------+-------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set ename='sharmin' where id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++----+---------+--------+------+------+-------+--------------------+
+| id | ename   | city   | comm | sal  | total | password           |
++----+---------+--------+------+------+-------+--------------------+
+|  1 | saleel  | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 | sharmin | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 |         | pune   | NULL | NULL |  NULL | NULL               |
+|  4 |         | pune   | NULL | NULL |  NULL | NULL               |
++----+---------+--------+------+------+-------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> update emp set ename='ruhan' where id=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> delete from emp where id = 4;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++----+---------+--------+------+------+-------+--------------------+
+| id | ename   | city   | comm | sal  | total | password           |
++----+---------+--------+------+------+-------+--------------------+
+|  1 | saleel  | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 | sharmin | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 | ruhan   | pune   | NULL | NULL |  NULL | NULL               |
++----+---------+--------+------+------+-------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from emp;
++----+---------+--------+------+------+-------+--------------------+
+| id | ename   | city   | comm | sal  | total | password           |
++----+---------+--------+------+------+-------+--------------------+
+|  1 | saleel  | baroda |  200 | 5000 |  5200 | 0x73616C65656C     |
+|  2 | sharmin | pune   | NULL | 6000 |  NULL | NULL               |
+|  3 | ruhan   | pune   | NULL | NULL |  NULL | NULL               |
++----+---------+--------+------+------+-------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> create table t4(id int auto_increment primary key, c1 int, c2 int, c3 int default c1+c2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c1+c2)' at line 1
+mysql> create table t4(id int auto_increment primary key, c1 int, c2 int, c3 int default (c1+c2));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc t4;
++-------+------+------+-----+---------------+-------------------+
+| Field | Type | Null | Key | Default       | Extra             |
++-------+------+------+-----+---------------+-------------------+
+| id    | int  | NO   | PRI | NULL          | auto_increment    |
+| c1    | int  | YES  |     | NULL          |                   |
+| c2    | int  | YES  |     | NULL          |                   |
+| c3    | int  | YES  |     | (`c1` + `c2`) | DEFAULT_GENERATED |
++-------+------+------+-----+---------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> create table t5(id int auto_increment primary key, c1 int, c2 int, c3 int generated always as (c1+c2) virtual);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> deac t4;\
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'deac t4' at line 1
+mysql> desc t4;
++-------+------+------+-----+---------------+-------------------+
+| Field | Type | Null | Key | Default       | Extra             |
++-------+------+------+-----+---------------+-------------------+
+| id    | int  | NO   | PRI | NULL          | auto_increment    |
+| c1    | int  | YES  |     | NULL          |                   |
+| c2    | int  | YES  |     | NULL          |                   |
+| c3    | int  | YES  |     | (`c1` + `c2`) | DEFAULT_GENERATED |
++-------+------+------+-----+---------------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc t5;
++-------+------+------+-----+---------+-------------------+
+| Field | Type | Null | Key | Default | Extra             |
++-------+------+------+-----+---------+-------------------+
+| id    | int  | NO   | PRI | NULL    | auto_increment    |
+| c1    | int  | YES  |     | NULL    |                   |
+| c2    | int  | YES  |     | NULL    |                   |
+| c3    | int  | YES  |     | NULL    | VIRTUAL GENERATED |
++-------+------+------+-----+---------+-------------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into t4(default, 100, 200, default);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'default, 100, 200, default)' at line 1
+mysql> insert into t4 values(default, 100, 200, default);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into t5 values(default, 100, 200, default);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  1 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from t5;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  1 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t4 set c2=400 where id = 1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update t5 set c2=400 where id = 1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  1 |  100 |  400 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from t5;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  1 |  100 |  400 |  500 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t5 set c3=700 where id=1;
+ERROR 3105 (HY000): The value specified for generated column 'c3' in table 't5' is not allowed.
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  1 |  100 |  400 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t4 set c3 = c1+c3 where id=1;                                               Query OK, 1 row affected (0.00 sec)                                                       Rows matched: 1  Changed: 1  Warnings: 0                                                                                                                                            mysql> select * from t4;                                                                  +----+------+------+------+                                                               | id | c1   | c2   | c3   |                                                               +----+------+------+------+                                                               |  1 |  100 |  400 |  400 |                                                               +----+------+------+------+                                                               1 row in set (0.00 sec)                                                                                                                                                             mysql> rollback;                                                                          Query OK, 0 rows affected (0.00 sec)                                                                                                                                                mysql> update t4 set c3 = c1+c2 where id=1;                                               Query OK, 0 rows affected (0.00 sec)                                                      Rows matched: 0  Changed: 0  Warnings: 0                                                                                                                                            mysql> select * from t4;                                                                  Empty set (0.00 sec)                                                                                                                                                                mysql> insert into t4 values(default, 100, 200, default);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t4 set c3=700 where id=1;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t4 set c3=700 where id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> commit;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  700 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> update t4 set c3 = c1+c2 where id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select * from t4;
++----+------+------+------+
+| id | c1   | c2   | c3   |
++----+------+------+------+
+|  2 |  100 |  200 |  300 |
++----+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> create table a1(id int primary key, ename varchar(10) primary key);
+ERROR 1068 (42000): Multiple primary key defined
+mysql>
+mysql>
+mysql> create table a1(id int primary key, ename varchar(10));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc a;
+ERROR 1146 (42S02): Table 'saleel.a' doesn't exist
+mysql> desc a1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> alter table a1 drop primary key;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc a1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table a1 add primary key(id);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc a1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table a1 add primary key(ename);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table a1 drop primary key;
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc a1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | NULL    |       |
+| ename | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table a1 add primary key(id, ename);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc a1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| ename | varchar(10) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql>

@@ -1,0 +1,42 @@
+use Vishwascdac;
+
+
+show tables from Vishwascdac;
+
+
+create table vishwas1(
+Emp_ID int NOT NULL,
+Emp_Name VARCHAR(50),
+Department VARCHAR(50),
+Emp_Designation VARCHAR(50),
+Emp_Salary INT(7),
+Emp_DateOfJoining date,
+Emp_Total_Experience int(2),
+PRIMARY KEY (Emp_ID)
+);
+
+
+select * from vishwas1;
+
+drop table vishwas1;
+
+insert into vishwas1(Emp_ID,Emp_Name,Department,Emp_Designation,Emp_Salary,Emp_DateOfJoining,Emp_Total_Experience)
+VALUES(  );
+
+insert into vishwas1(Emp_ID,Emp_Name,Department,Emp_Designation,Emp_Salary,Emp_DateOfJoining,Emp_Total_Experience)
+VALUES('01','Vishwas Verma','CDAC','Student','0','2023-09-08','4');
+
+
+insert into vishwas1(Emp_ID,Emp_Name,Department,Emp_Designation,Emp_Salary,Emp_DateOfJoining,Emp_Total_Experience)
+VALUES('02','Shashwat Sharma','CDAC','Student','0','2023-09-08','4');
+
+
+insert into vishwas1(Emp_ID,Emp_Name,Department,Emp_Designation,Emp_Salary,Emp_DateOfJoining,Emp_Total_Experience)
+VALUES('03','Shubham','CDAC','Student','0','2023-09-08','4');
+
+
+insert into vishwas1(Emp_ID,Emp_Name,Department,Emp_Designation,Emp_Salary,Emp_DateOfJoining,Emp_Total_Experience)
+VALUES('04','Pratimesh','CDAC','Student','0','2023-09-08','4');
+
+
+select * from vishwas1;

@@ -1,0 +1,44 @@
+//Date : 14/09/23
+
+show databases;
+
+use Vishwascdac;
+
+create table Student(
+Student_ID INT not NULL auto_increment,
+Student_Name VARCHAR(50),
+Email VARCHAR(50),
+Gender VARCHAR(10),
+Contact_Number INT(20),
+Department VARCHAR(50),
+Department_ID VARCHAR(50),
+PRIMARY KEY (Student_ID)
+);
+
+create table Department(
+Dept_ID INT NOT Null auto_increment,
+Department_name VARCHAR(50),
+Student_ID int Not NULL,
+PRIMARY KEY(Dept_ID),
+constraint fk_Dept_ID foreign key(Dept_ID)
+references Student(Student_ID)
+);
+
+create table EXAM(
+Exam_ID int NOT NULL auto_increment,
+Subjects VARCHAR (50),
+Exam_Name VARCHAR(50),
+PRIMARY KEY (Exam_ID),
+constraint fk_Exam_ID foreign key(Exam_ID)
+references Student(Student_ID)
+);
+
+create table Subjects(
+Sub_ID int not null auto_Increment,
+S_Name VARCHAR(50),
+Marks int(3),
+Student_ID int,
+primary key(Sub_ID),
+constraint fk_Sub_ID foreign key(Sub_ID)
+references Student(Student_ID)
+);

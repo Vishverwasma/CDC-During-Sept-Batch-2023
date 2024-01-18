@@ -1,0 +1,78 @@
+1. Write a query to find length of text in Employee name.
+
+
+2.Write query for all employees that resumed in the past year (where hiredate > the date of a year ago).
+
+
+3. write a SQL query to find those employees with hire date in the format like February 22, 1991. 
+Return employee ID, employee name, salary, hire date.
+
+
+4. write a SQL query to count the number of characters except the spaces for each employee name. Return employee name length.
+
+
+5. write a SQL query to find those employees who do not belong to the department 2001.
+
+6.  write a SQL query to find those employees who joined before 1991.
+
+
+7. write a SQL query to find the names of the employees whose length is six.
+
+
+8. write a SQL query to find out which employees joined in the month of January.
+
+
+9. write a SQL query to identify employees with more than 27 years of experience.
+
+
+10. write a SQL query to find out which employees earn more than 50 per day as a salary.Return employee ID, employee name, salary, and experience.
+
+
+11. write a SQL query to identify the employees whose salaries are odd.
+
+
+12. write a SQL query to find out which employees joined the company before the 19th of the month.
+
+
+13. a. the employees receive some commission which should not be more than the salary and annual salary including commission is below 34000.
+ b. Designation is ‘SALESMAN’ and working in the department ‘3001’. Return employee ID, employee name, salary and job name.
+write combine query
+
+
+14. write a SQL query to identify those employees who joined in any month other than February.
+
+
+15. write a query to reverse employee name.
+
+16. write a query to print employee name in lower case.
+
+17. write a query to print employee name in upper case.
+
+
+18. write a query to Return the number of products in the "Products" table.
+
+
+19. write a query Return the average value for the "Price" column in the "Products" table:
+
+20. write a query Find the price of the most expensive product in the "Products" table.
+
+
+21. write a query Find the price of the cheapest product in the "Products" table.
+
+22. write a query to return the current date and time + 1.
+
+23. write a query to return total of salary of all employees.
+
+
+24. create a table Persons where id is not null, last name should not be null with 255 varchar,
+firstname having 255 varchar, age with int, make id as primary key after table is created. Then drop primary key.
+
+
+25. create Orders table where orderId is not null, orderNumber is not null, PersonId as int,make
+orderId as primary key and PersonId as Foreign key. Then Drop Foreign key constraint.
+
+
+26. create a table Persons where id is not null, last name should not be null with 255 varchar,
+firstname having 255 varchar, age with int, make id as primary key after table is created.Autoincrement personId.
+
+
