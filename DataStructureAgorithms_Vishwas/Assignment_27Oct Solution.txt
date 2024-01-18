@@ -1,0 +1,1997 @@
+Java Collection: 
+ArrayList Exercises 
+
+1. Write a Java program to create an array list, add some colors (strings) and print out the collection.
+
+Solution : 
+
+package Assignment271023;
+import java.util.*;
+import java.lang.reflect.Array;
+import java.util.LinkedList;
+
+public class Question01 {
+    public static void main(String[] args) {
+
+        ArrayList<String> c=new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : "+c);
+    }
+}
+_______________________________________________________________________________
+
+2. Write a Java program to iterate through all elements in an array list.
+
+Soltution : 
+
+package Assignment271023;
+import java.util.*;
+import java.lang.reflect.Array;
+import java.util.LinkedList;
+public class Question02 {
+    public static void main(String[] args) {
+        ArrayList<String> c=new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+
+        Iterator i=c.iterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
+}
+_______________________________________________________________________________
+
+3. Write a Java program to insert an element into the array list at the first position.
+
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Question03 {
+    public static void main(String[] args) {
+        ArrayList<String> c=new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+
+        c.add(1,"Black");
+        System.out.println("After Placing a new Element : ");
+
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+
+4. Write a Java program to retrieve an element (at a specified index) from a given array list.
+
+Soltuion : 
+
+package Assignment271023;
+import java.util.*;
+public class Question04 {
+    public static void main(String[] args) {
+        int n;
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println("________");
+        System.out.println("The Index You WIsh To See Element Of : ");
+        Scanner in = new Scanner(System.in);
+        n = in.nextInt();
+        if (n < c.size()) {
+            System.out.println("________");
+            System.out.println("Value at index : " + n + " : " + c.get(n));
+        }
+        else{
+            System.out.println("Invalid Entry ! ");
+        }
+    }
+}
+_______________________________________________________________________________
+5. Write a Java program to update an array element by the given element.
+
+Solution : 
+
+_______________________________________________________________________________
+6. Write a Java program to remove the third element from an array list.
+
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.*;
+public class Question05 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+        c.remove(2);
+        System.out.println("VIBGYOR after removal : ");
+        System.out.println("________");
+        System.out.println(c);
+    }
+}
+---------------OR-------------------
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.*;
+public class Question05 {
+    public static void main(String[] args) {
+ ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+        System.out.println("To Remove Colour : Orange : ");
+        c.remove("Orange");
+        System.out.println(c);
+	}
+}
+_______________________________________________________________________________
+7. Write a Java program to search for an element in an array list.
+
+Solution : 
+package Assignment271023;
+
+import java.util.ArrayList;
+
+public class Question07 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+        System.out.println("To Search Colour : Orange : ");
+        if(c.contains("Blue")){
+            System.out.println("The List Contains Blue");
+        }
+        else{
+            System.out.println("The List Doesnt Contains Blue");
+        }
+    }
+}
+
+_______________________________________________________________________________
+8. Write a Java program to sort a given array list.
+
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+public class Question08 {
+
+    public static void main(String[] args) {
+            ArrayList<String> c = new ArrayList<String>();
+            c.add("Violet");
+            c.add("Indigo");
+            c.add("Blue");
+            c.add("Green");
+            c.add("Yellow");
+            c.add("Orange");
+            c.add("Red");
+            System.out.println("VIBGYOR : ");
+            System.out.println("________");
+            System.out.println(c);
+            System.out.println();
+        System.out.println("Sorted VIBGYOR : ");
+        Collections.sort(c);
+            System.out.println(c);
+        }
+}
+
+_______________________________________________________________________________
+9. Write a Java program to copy one array list into another.
+
+Solution : 
+package Assignment271023;
+import java.util.ArrayList;
+import java.util.Collections;
+public class Question09 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        ArrayList<String> c1=new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+        System.out.println("Copied All Elements from Collection c : ");
+
+
+        c1.add("1");
+        c1.add("2");
+        c1.add("3");
+        c1.add("4");
+        c1.add("5");
+        c1.add("6");
+        c1.add("7");
+		
+		
+        Collections.copy(c1,c);
+        System.out.println(c1);
+    }
+}
+
+
+_______________________________________________________________________________
+
+10. Write a Java program to shuffle elements in an array list.
+
+Solution : 
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Question10 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        ArrayList<String> c1 = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+
+        Collections.shuffle(c);
+        System.out.println("________");
+        System.out.println("after Shuffling : ");
+        System.out.println("________");
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+11. Write a Java program to reverse elements in an array list.
+
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Question11 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        ArrayList<String> c1 = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+
+        Collections.reverse(c);
+        System.out.println("________");
+        System.out.println("after Reversing : ");
+        System.out.println("________");
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+12. Write a Java program to extract a portion of an array list.
+
+Solution : 
+package Assignment271023;
+
+import java.util.*;
+import java.util.Collections;
+
+public class Question12 {
+    public static void main(String[] args) {
+        List<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println();
+
+        List<String> sublist=c.subList(0,3);
+        System.out.println("Value in range of index 0-3 : ");
+        System.out.println(sublist);
+    }
+}
+
+_______________________________________________________________________________
+13. Write a Java program to compare two array lists.
+Solution : 
+
+package Assignment271023;
+import Assignment20Oct.A;
+
+import java.util.*;
+public class Question13 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+
+        ArrayList<String> d=new ArrayList<String>();
+        d.add("Purple");
+        d.add("Pink");
+        d.add("Blue");
+        d.add("Red");
+        d.add("Brown");
+        d.add("Black");
+        d.add("Yellow");
+        d.add("White");
+
+        ArrayList<String> e=new ArrayList<String>();
+        for(String f:c){
+            e.add(d.contains(f)?"Yes":"No");
+        }
+        System.out.println(e);
+    }
+}
+_______________________________________________________________________________
+14. Write a Java program that swaps two elements in an array list.
+
+Solution : 
+
+package Assignment271023;
+import java.util.*;
+
+public class Question14 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        ArrayList<String> c1 = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        Collections.swap(c,1,4);
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+15. Write a Java program to join two array lists.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import static java.util.Collections.addAll;
+public class Question15 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("The First Batch Of Colours : ");
+        System.out.println();
+        System.out.println(c);
+
+        ArrayList<String> d = new ArrayList<String>();
+        d.add("Purple");
+        d.add("Pink");
+        d.add("Blue");
+        d.add("Red");
+        d.add("Brown");
+        d.add("Black");
+        d.add("Yellow");
+        d.add("White");
+        System.out.println("The Other Batch Of Colours : ");
+        System.out.println(d);
+
+
+        c.addAll(d);
+        System.out.println("After Merging This Two Arraly LIsts : ");
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+16. Write a Java program to clone an array list to another array list.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class Question16 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+
+        ArrayList<String> c1 = (ArrayList<String>)c.clone();
+        System.out.println("After Cloning of Arraylist c to c1 we get c : ");
+        System.out.println(c1);
+    }
+}
+_______________________________________________________________________________
+17. Write a Java program to empty an array list.
+
+Solution : 
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Question17 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        
+        
+        c.removeAll(c);
+        
+        
+        System.out.println("________");
+        System.out.println("________");
+        System.out.println("The Empty List c : ");
+        System.out.println(c);
+    }
+}
+
+_______________________________________________________________________________
+18. Write a Java program to test whether an array list is empty or not.
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+
+public class Question18 {
+        public static void main(String[] args) {
+            ArrayList<String> c = new ArrayList<String>();
+            c.add("Violet");
+            c.add("Indigo");
+            c.add("Blue");
+            c.add("Green");
+            c.add("Yellow");
+            c.add("Orange");
+            c.add("Red");
+            System.out.println("VIBGYOR : ");
+            System.out.println("________");
+            System.out.println(c);
+
+            System.out.println("To Check If Our List Is Empty Or Not : ");
+            System.out.println(c.isEmpty()?"Yes":"No");
+        }
+}
+
+_______________________________________________________________________________
+19. Write a Java program for trimming the capacity of an array list.
+
+Solution :
+
+package Assignment271023;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Question19 {
+    public static void main(String[] args) {
+            ArrayList<String> c = new ArrayList<String>();
+            c.add("Violet");
+            c.add("Indigo");
+            c.add("Blue");
+            c.add("Green");
+            c.add("Yellow");
+            c.add("Orange");
+            c.add("Red");
+            System.out.println("VIBGYOR : ");
+            System.out.println("________");
+            System.out.println(c);
+        System.out.println("________");
+        System.out.println(c.size());
+            c.trimToSize();
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println("________");
+        System.out.println(c.size());
+    }
+}
+
+_______________________________________________________________________________
+20. Write a Java program to increase an array list size.
+
+Solution :
+
+package Assignment271023;
+
+import java.util.ArrayList;
+
+public class Question20 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>(7);
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println(c);
+        System.out.println("________");
+        System.out.println("Size of c-List is : "+c.size());
+        System.out.println("________");
+        System.out.println("________");
+        c.ensureCapacity(14);
+        c.add("Purple");
+        c.add("Pink");
+        c.add("Blue");
+        c.add("Red");
+        c.add("Brown");
+        c.add("Black");
+        c.add("Yellow");
+        c.add("White");
+        System.out.println(c);
+        System.out.println("________");
+        System.out.println("Size of c-List is : "+c.size());
+    }
+}
+
+_______________________________________________________________________________
+21. Write a Java program to replace the second element of an ArrayList with the specified element.
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+
+public class Question21 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+
+        c.set(1,"White");
+        System.out.println("After Replacing and Element with other Element : ");
+        System.out.println(c);
+        System.out.println("________");
+
+    }
+}
+
+_______________________________________________________________________________
+22. Write a Java program to print all the elements of an ArrayList using the elements' position.
+
+Solution : 
+
+package Assignment271023;
+
+import java.util.ArrayList;
+
+public class Question22 {
+    public static void main(String[] args) {
+        ArrayList<String> c = new ArrayList<String>();
+        c.add("Violet");
+        c.add("Indigo");
+        c.add("Blue");
+        c.add("Green");
+        c.add("Yellow");
+        c.add("Orange");
+        c.add("Red");
+        System.out.println("VIBGYOR : ");
+        System.out.println("________");
+        System.out.println(c);
+        System.out.println("________");
+        for(int i=0;i<c.size();i++){
+            System.out.println(i+" : "+c.get(i));
+        }
+    }
+}
+
+_______________________________________________________________________________
+====================================================================================================================
+Java Collection: 
+LinkedList Exercises
+1. Write a Java program to append the specified element to the end of a linked list.
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q01 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        System.out.println("The Elements os This Linked List is : "+l);
+        l.add("Black");
+        //l.set(l.size(),"Red");
+        System.out.println("After Appending an Element ot The Last Position Of This Array List : "+l);
+    }
+}
+_______________________________________________________________________________
+2. Write a Java program to iterate through all elements in a linked list.
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+import java.util.List;
+public class Q02 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements os This Linked List is : "+l);
+        Iterator i=l.iterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
+}
+
+_______________________________________________________________________________
+3. Write a Java program to iterate through all elements in a linked list starting at the specified position.
+Soltuion :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q03 {
+    public static void main(String[] args) {
+        List<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements os This Linked List is : " + l);
+
+        System.out.println("Iterator From : ");
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        if (n < l.size()) {
+            Iterator i = l.listIterator(n);
+            while (i.hasNext()) {
+                System.out.println(i.next());
+            }
+        }
+        else{
+            System.out.println("Invalid Selection");
+        }
+    }
+}
+
+
+_______________________________________________________________________________
+4. Write a Java program to iterate a linked list in reverse order.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q04 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements os This Linked List is : "+l);
+        Iterator i= ((LinkedList<String>) l).descendingIterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
+}
+
+_______________________________________________________________________________
+5. Write a Java program to insert the specified element at the specified position in the linked list.
+
+Soltuion :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+
+public class Q05 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+
+        l.set(2,"Blue");
+        System.out.println("The Elements Of This Linked List after Adding an Element is : "+l);
+    }
+}
+
+_______________________________________________________________________________
+6. Write a Java program to insert elements into the linked list at the first and last positions.
+
+Solution :
+package Assignment271023JavaCollectios;
+
+import java.util.LinkedList;
+import java.util.*;
+public class Q06 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+
+        l.add(0,"White");
+        l.add("Black");
+        System.out.println("_______________");
+        System.out.println(l);
+    }
+}
+
+_______________________________________________________________________________
+7. Write a Java program to insert the specified element at the front of a linked list.
+
+Solution :
+package Assignment271023JavaCollectios;
+
+import java.util.*;
+import java.util.List;
+
+public class Q07 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+        l.add(0,"SpecifiedElement");
+        System.out.println("_______________");
+        System.out.println(l);
+    }
+}
+
+_______________________________________________________________________________
+8. Write a Java program to insert the specified element at the end of a linked list.
+
+Solution : 
+
+package Assignment271023JavaCollectios;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Q08 {
+    public static void main(String[] args) {
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+        l.add("SpecifiedElement");
+        System.out.println("_______________");
+        System.out.println(l);
+    }
+}
+
+_______________________________________________________________________________
+9. Write a Java program to insert some elements at the specified position into a linked list.
+Soltuion :
+
+package Assignment271023JavaCollectios;
+
+import java.util.LinkedList;
+import java.util.*;
+
+public class Q09 {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        List<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+        System.out.println("Element To Be Entered At : ");
+        int n=in.nextInt();
+        if(n<l.size()) {
+            l.add(n, "SpecifiedElement");
+            System.out.println("_______________");
+            System.out.println(l);
+        }else{
+            System.out.println("The Index You Entered Exceeds The Size Of The Array by Moe Than 2");
+        }
+    }
+}
+
+_______________________________________________________________________________
+10. Write a Java program to get the first and last occurrence of the specified elements in a linked list.
+
+Solution :
+ 
+package Assignment271023JavaCollectios;
+import java.util.*;
+
+public class Q10 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+        Object m=l.getFirst();
+        System.out.println(" : "+m);
+        Object n=l.getLast();
+        System.out.println(" : "+n);
+    }
+}
+
+_______________________________________________________________________________
+11. Write a Java program to display elements and their positions in a linked list.
+Solution : 
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q11 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : "+l);
+        for(int i=0;i<l.size();i++){
+            System.out.println(i+" : "+l.get(i));
+        }
+    }
+}
+
+_______________________________________________________________________________
+12. Write a Java program to remove a specified element from a linked list.
+
+Solution : 
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q12 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        LinkedList<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : " + l);
+        System.out.println("Type What you wanna Remove : ");
+        String x = in.next();
+        l.remove(x);
+                System.out.println("After Removal of " + x + " our LinkedList Comes Out to be : ");
+                System.out.println(l);
+        }
+    }
+
+
+_______________________________________________________________________________
+13. Write a Java program to remove the first and last elements from a linked list.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+
+import java.util.LinkedList;
+
+public class Q13 {
+    public static void main(String[] args) {
+        LinkedList<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : " + l);
+        l.remove(1);
+        l.remove(l.size()-1);
+        System.out.println("The Modified List Is : "+l);
+    }
+}
+
+_______________________________________________________________________________
+14. Write a Java program to remove all elements from a linked list.
+
+Solution :
+package Assignment271023JavaCollectios;
+
+import java.util.*;
+
+public class Q14 {
+    public static void main(String[] args) {
+        LinkedList<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : " + l);
+        l.clear();
+        System.out.println("The Empty Version Of This Linked List is : "+l);
+    }
+}
+
+_______________________________________________________________________________
+15. Write a Java program that swaps two elements in a linked list.
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q15 {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int x,y;
+        LinkedList<String> l = new LinkedList<String>();
+       l.add("Violet");
+       l.add("Indigo");
+       l.add("Blue");
+       l.add("Green");
+       l.add("Yellow");
+       l.add("Orange");
+       l.add("Red");
+       System.out.println("The Elements Of This Linked List is : " + l);
+        System.out.println("The Two Indexes From Where the Elements Are to Be Swapped Are : ");
+        System.out.println("x : ");
+        x=in.nextInt();
+        System.out.println("y : ");
+        y= in.nextInt();
+        if(x<l.size() && y<l.size()) {
+            Collections.swap(l, x, y);
+            System.out.println("The Modified Linked LIst after Swapping is : ");
+            System.out.println(l);
+        }
+        else{
+            System.out.println("The input in Either x or y is Wrong !");
+        }
+    }
+}
+
+_______________________________________________________________________________
+16. Write a Java program to shuffle elements in a linked list.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+
+import java.util.*;
+
+public class Q16 {
+    public static void main(String[] args) {
+        LinkedList<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : " + l);
+        Collections.shuffle(l);
+        System.out.println("The Shuffled Elements in Linked List is :"+ l);
+    }
+}
+
+________________________________________________________________________________
+17. Write a Java program to join two linked lists.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class q17 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Seven Colour Spectrum Is : "+l);
+        LinkedList<String> m=new LinkedList<String>();
+        m.add("White");
+        m.add("Pink");
+        m.add("Black");
+        m.add("Grey");
+        m.add("Silver");
+        m.add("Golden");
+        System.out.println("The Other Colours are : "+m);
+        l.addAll(m);
+        System.out.println("On Merging this Two Combos what we got is : "+l);
+    }
+}
+
+________________________________________________________________________________
+18. Write a Java program to copy a linked list to another linked list.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class q18 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Seven Colour Spectrum Is : "+l);
+        LinkedList<String> m=new LinkedList<String>();
+        m.add("White");
+        m.add("Pink");
+        m.add("Black");
+        m.add("Grey");
+        m.add("Silver");
+        m.add("Golden");
+        m.add("Neon");
+        System.out.println("The Other Colours are : "+m);
+        System.out.println("But On Copying Elements from LinkedList l to m we Get : ");
+        Collections.copy(m,l);
+        System.out.println("The Elements of m is Changed to : "+m);
+    }
+}
+
+________________________________________________________________________________
+19. Write a Java program to remove and return the first element of a linked list.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class q19 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Seven Colour Spectrum Is : "+l);
+        System.out.println("________________________________________________________________________________");
+        System.out.println("Index from where You wish to remove Element from : ");
+        Scanner in=new Scanner(System.in);
+        int x= in.nextInt();
+        if(x<l.size()) {
+            l.remove(x);
+            System.out.println("After Removing The Element from Index " + x + " we get ");
+            System.out.println(l);
+        }
+        else{
+            System.out.println("You Have Exceeded the Size of LinkedList ! ");
+        }
+    }
+}
+
+________________________________________________________________________________
+20. Write a Java program to retrieve, but not remove, the first element of a linked list.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class q20 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Seven Colour Spectrum Is : "+l);
+        System.out.println("________________________________________________________________________________");
+        System.out.println(" The Index From Which You Wish To Retrieve The Element From Is : ");
+        Scanner in=new Scanner(System.in);
+        int m=in.nextInt();
+        if(m<l.size()){
+            System.out.println("The Element in index "+m+" is "+l.get(m));
+        }
+        else{
+            System.out.println("The value of "+m+" exceeds the size of Linked list that is "+l.size());
+        }
+    }
+}
+
+________________________________________________________________________________
+21. Write a Java program to retrieve, but not remove, the last element of a linked list.
+
+Solution :
+
+package Assignment271023;
+import java.util.*;
+public class q21 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Seven Colour Spectrum Is : "+l);
+        System.out.println("________________________________________________________________________________");
+        System.out.println(" The Index From Which You Wish To Retrieve The Element From Is : ");
+
+        int m=l.size();
+
+            System.out.println("The Element in index "+(m-1)+" is "+l.get(m-1));
+        
+    }
+}
+
+________________________________________________________________________________
+22. Write a Java program to check if a particular element exists in a linked list.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q22 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.push("Violet");
+        l.push("Indigo");
+        l.push("Blue");
+        l.push("Green");
+        l.push("Yellow");
+        l.push("Orange");
+        l.push("Red");
+        System.out.println("Elements in This Linked List : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("Input Element For What Your are in Search OF : ");
+        Scanner in=new Scanner(System.in);
+        String n=in.next();
+        int c=1;
+
+        if(l.contains(n)){
+            System.out.println("The element "+n+ " is Present in LinkedList ");
+        }else{
+            System.out.println("The element "+n+ " is not Present in LinkedList ");
+        }
+    }
+}
+
+
+________________________________________________________________________________
+23. Write a Java program to convert a linked list to an array list.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q23 {
+    public static void main(String[] args) {
+        LinkedList<String> l=new LinkedList<String>();
+        l.push("Violet");
+        l.push("Indigo");
+        l.push("Blue");
+        l.push("Green");
+        l.push("Yellow");
+        l.push("Orange");
+        l.push("Red");
+        System.out.println("Elements in This Linked List : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        List<String> al=new ArrayList<String>(l);
+        System.out.println("After Conversion the Elements in Array List Comes out to be : ");
+        for(Object i:al){
+            System.out.println(i);
+        }
+    }
+}
+
+________________________________________________________________________________
+24. Write a Java program to compare two linked lists.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q24 {
+    public static void main(String[] args) {
+
+        LinkedList<String> l = new LinkedList<String>();
+        l.push("Violet");
+        l.push("Indigo");
+        l.push("Blue");
+        l.push("Green");
+        l.push("Yellow");
+        l.push("Orange");
+        l.push("Red");
+        System.out.println("Elements in This Linked List : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        LinkedList<String> l1=new LinkedList<String>();
+        l1.push("Brown");
+        l1.push("White");
+        l1.push("Black");
+        l1.push("Silver");
+        l1.push("Ryan");
+        l1.push("Gray");
+        l1.push("Orange");
+        System.out.println("The Elements in This Linked List are : "+l1);
+        LinkedList<String> l2=new LinkedList<String>();
+        for(String l3:l){
+            l2.add(l1.contains(l3)?"Yes":"No");
+        }
+        System.out.println("_________________-------------------________________");
+        System.out.println(l2);
+    }
+}
+
+________________________________________________________________________________
+25. Write a Java program to check if a linked list is empty or not.
+
+Solution :
+
+package Assignment271023JavaCollectios;
+
+import java.util.*;
+
+public class Q25 {
+    public static void main(String[] args) {
+            LinkedList<String> l = new LinkedList<String>();
+            l.push("Violet");
+            l.push("Indigo");
+            l.push("Blue");
+            l.push("Green");
+            l.push("Yellow");
+            l.push("Orange");
+            l.push("Red");
+            System.out.println("Elements in This Linked List : ");
+            System.out.println(l);
+            System.out.println("_________----------__________");
+        System.out.println("Is theis Linked List Empty or Not : "+(l.isEmpty()?"Yes":"No"));
+    }
+}
+
+________________________________________________________________________________
+26. Write a Java program to replace an element in a linked list.
+
+Soltuion :
+
+package Assignment271023JavaCollectios;
+import java.util.*;
+public class Q26 {
+    public static void main(String[] args) {
+        LinkedList<String> l = new LinkedList<String>();
+        l.push("Violet");
+        l.push("Indigo");
+        l.push("Blue");
+        l.push("Green");
+        l.push("Indigo");
+        l.push("Orange");
+        l.push("Red");
+        System.out.println("Elements in This Linked List : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        Collections.replaceAll(l,"Indigo","White");
+        System.out.println("The Linked List After Changing The Values In It : ");
+        System.out.println(l);
+    }
+}
+
+________________________________________________________________________________
+============================================================================================================
+
+Java Collection: HashSet Exercises
+
+1. Write a Java program to append the specified element to the end of a hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q1 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("What Your Wish To Append In This Hash Set : ");
+        Scanner in=new Scanner(System.in);
+        String x=in.next();
+        l.add(x);
+        System.out.println("After Appending The Element "+x+"Our Hash set Became : ");
+        System.out.println(l);
+    }
+}
+
+________________________________________________________________________________
+2. Write a Java program to iterate through all elements in a hash list.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q2 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("Iterating this HashSet : ");
+        Iterator i=l.iterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
+}
+
+________________________________________________________________________________
+3. Write a Java program to get the number of elements in a hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q3 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("The Number of Elements in this HashSet is : "+l.size());
+    }
+}
+
+________________________________________________________________________________
+4. Write a Java program to empty an hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q4 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("On Emptying the HashSet : "+l);
+        System.out.println("We get its as "+l.removeAll(l)+" : "+l);
+    }
+}
+
+________________________________________________________________________________
+5. Write a Java program to test if a hash set is empty or not.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q5 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("To CHeck If The HashSet is Empty Or Not using 'l.isEmpty()' : "+l.isEmpty());
+
+    }
+}
+
+________________________________________________________________________________
+6. Write a Java program to clone a hash set to another hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q6 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        //Method 1:
+        HashSet<String> m=new HashSet<String>();
+        for(String s:l){
+            m.add(s);
+        }
+        System.out.println("After Cloning Elements From HashSet1 to HashSet2 we Get HashSet2 as : ");
+        System.out.println(m);
+        //Method 2:
+        HashSet<String> n=(HashSet)l.clone();
+        System.out.println("Cloning The Elements Using Method 2 we get new HashSet as : ");
+        System.out.println(n);
+    }
+}
+
+________________________________________________________________________________
+7. Write a Java program to convert a hash set to an array.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q7 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        List<String> m=new ArrayList<String>(l);
+        System.out.println("After Conversion to Array List we Get new List as : ");
+        System.out.println(m);
+    }
+}
+
+________________________________________________________________________________
+8. Write a Java program to convert a hash set to a tree set.
+Solutoin :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q8 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        TreeSet<String> m=new TreeSet<String>(l);
+        System.out.println("After Conversion to Tree Set We receive a new set as : ");
+        System.out.println(m);
+    }
+}
+
+________________________________________________________________________________
+9. Write a Java program to find numbers less than 7 in a tree set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q9 {
+    public static void main(String[] args) {
+        TreeSet<Integer> l=new TreeSet<Integer>();
+        l.add(5);
+        l.add(10);
+        l.add(12);
+        l.add(19);
+        l.add(7);
+        l.add(3);
+        l.add(9);
+        System.out.println("Elements in This HashSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        System.out.println("Elements Less Than 7 are : ");
+        for(Integer i:l){
+            if(i<=7){
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+________________________________________________________________________________
+10. Write a Java program to compare two hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q10 {
+    public static void main(String[] args) {
+        TreeSet<String> l=new TreeSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This TreeSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        TreeSet<String> c=new TreeSet<String>();
+        c.add("Purple");
+        c.add("Pink");
+        c.add("Blue");
+        c.add("Red");
+        c.add("Brown");
+        c.add("Black");
+        c.add("Yellow");
+        c.add("White");
+        System.out.println("Elements in This TreeSet : ");
+        System.out.println(c);
+        System.out.println("________");
+        List<String> t=new ArrayList<String>();
+        System.out.println("Now Lets Make a New List To Show WHat element s are Present as Common in Both Tree List : ");
+        for(String f:c){
+            t.add(l.contains(f)?"Yes":"No");
+        }
+        System.out.println(t);
+    }
+}
+
+________________________________________________________________________________
+11. Write a Java program to compare two sets and retain elements that are the same.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q11 {
+    public static void main(String[] args) {
+        TreeSet<String> l=new TreeSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This TreeSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        TreeSet<String> c=new TreeSet<String>();
+        c.add("Purple");
+        c.add("Pink");
+        c.add("Blue");
+        c.add("Red");
+        c.add("Brown");
+        c.add("Black");
+        c.add("Yellow");
+        c.add("White");
+        System.out.println("Elements in This TreeSet : ");
+        System.out.println(c);
+        System.out.println("________");
+        List<String> t=new ArrayList<String>();
+        System.out.println("Now Lets Make a New List To Show WHat element s are Present as Common in Both Tree List : ");
+        for(String f:c){
+            t.add(l.contains(f)?f:"");
+        }
+        System.out.println(t);
+
+    }
+}
+
+________________________________________________________________________________
+12. Write a Java program to remove all elements from a hash set.
+Solution :
+
+package Assignment271023HashSet;
+import java.util.*;
+public class Q12 {
+    public static void main(String[] args) {
+        HashSet<String> l=new HashSet<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("Elements in This TreeSet : ");
+        System.out.println(l);
+        System.out.println("_________----------__________");
+        l.removeAll(l);
+        System.out.println("To Get  The result if The this HashSet Got Empty or Not : "+(l.isEmpty()?"Yes":"No"));
+    }
+}
+
+________________________________________________________________________________
+========================================================================================================================
+
+Java Collection: TreeSet Exercises 
+
+1. Write a Java program to create a tree set, add some colors (strings) and print out the tree set.
+
+
+2. Write a Java program to iterate through all elements in a tree set.
+
+
+3. Write a Java program to add all the elements of a specified tree set to another tree set.
+
+
+4. Write a Java program to create a reverse order view of the elements contained in a given tree set.
+
+
+5. Write a Java program to get the first and last elements in a tree set.
+
+
+6. Write a Java program to clone a tree set list to another tree set.
+
+
+7. Write a Java program to get the number of elements in a tree set.
+
+8. Write a Java program to compare two tree sets.
+
+
+9. Write a Java program to find numbers less than 7 in a tree set.
+
+
+10. Write a Java program to get the element in a tree set which is greater than or equal to the given element.
+
+
+11. Write a Java program to get the element in a tree set less than or equal to the given element.
+
+
+12. Write a Java program to get the element in a tree set strictly greater than or equal to the given element.
+
+
+13. Write a Java program to get an element in a tree set that has a lower value than the given element.
+
+
+14. Write a Java program to retrieve and remove the first element of a tree set.
+
+
+15. Write a Java program to retrieve and remove the last element of a tree set.
+
+
+16. Write a Java program to remove a given element from a tree set.
+================================================================================================================================
+
+Java Collection: PriorityQueue
+
+1. Write a Java program to create a priority queue, add some colors (strings) and print out the elements of the priority queue.
+
+
+2. Write a Java program to iterate through all elements in the priority queue.
+
+
+3. Write a Java program to add all the elements of a priority queue to another priority queue.
+
+
+4. Write a Java program to insert a given element into a priority queue.
+
+
+5. Write a Java program to remove all elements from a priority queue.
+
+
+6. Write a Java program to count the number of elements in a priority queue.
+n
+
+7. Write a Java program to compare two priority queues.
+
+8. Write a Java program to retrieve the first element of the priority queue.
+
+
+9. Write a Java program to retrieve and remove the first element.
+
+
+10. Write a Java program to convert a priority queue to an array containing all its elements.
+
+
+11. Write a Java program to convert a Priority Queue element to string representations.
+
+
+12. Write a Java program to change priorityQueue to maximum priority queue.
+
+=================================================================================================================
+Java Collection: HashMap Exercises
+
+1. Write a Java program to associate the specified value with the specified key in a HashMap.
+
+
+2. Write a Java program to count the number of key-value (size) mappings in a map.
+
+3. Write a Java program to copy all mappings from the specified map to another map.
+
+
+4. Write a Java program to remove all mappings from a map.
+
+
+5. Write a Java program to check whether a map contains key-value mappings (empty) or not.
+
+
+6. Write a Java program to get a shallow copy of a HashMap instance.
+
+
+7. Write a Java program to test if a map contains a mapping for the specified key.
+
+
+8. Write a Java program to test if a map contains a mapping for the specified value.
+
+
+9. Write a Java program to create a set view of the mappings contained in a map.
+
+
+10. Write a Java program to get the value of a specified key in a map.
+
+
+11. Write a Java program to get a set view of the keys contained in this map.
+
+
+12. Write a Java program to get a collection view of the values contained in this map.
+
+===================================================================================================================
+Java Collection: TreeMap Exercises
+1. Write a Java program to associate the specified value with the specified key in a Tree Map.
+
+
+2. Write a Java program to copy Tree Map's content to another Tree Map.
+
+
+3. Write a Java program to search for a key in a Tree Map.
+
+
+4. Write a Java program to search for a value in a Tree Map.
+
+
+5. Write a Java program to get all keys from a Tree Map.
+
+
+6. Write a Java program to delete all elements from a Tree Map.
+
+
+7. Write a Java program to sort keys in a Tree Map by using a comparator.
+
+8. Write a Java program to get a key-value mapping associated with the greatest key and the least key in a map.
+
+
+9. Write a Java program to get the first (lowest) key and the last (highest) key currently in a map.
+
+
+10. Write a Java program to get a reverse order view of the keys contained in a given map.
+
+
+11. Write a Java program to get a key-value mapping associated with the greatest key less than or equal to the given key.
+
+
+12. Write a Java program to get the greatest key less than or equal to the given key.
+
+
+13. Write a Java program to get the portion of a map whose keys are strictly less than a given key.
+
+
+14. Write a Java program to get the portion of this map whose keys are less than (or equal to, if inclusive is true) a given key.
+
+
+15. Write a Java program to get the least key strictly greater than the given key. Return null if there is no such key.
+
+
+16. Write a Java program to get a key-value mapping associated with the greatest key strictly less than the given key. Return null if there is no such key.
+
+
+17. Write a Java program to get the greatest key strictly less than the given key. Return null if there is no such key.
+
+
+18. Write a Java program to get a NavigableSet view of keys in a map.
+
+
+19. Write a Java program to remove and get a key-value mapping associated with the least key in a map.
+
+20. Write a Java program to remove and get a key-value mapping associated with the greatest key in this map.
+
+
+21. Write a Java program to get the portion of a map whose keys range from a given key (inclusive) to another key (exclusive).
+
+22. Write a Java program to get the portion of a map whose keys range from a given key to another key.
+
+23. Write a Java program to get a portion of a map whose keys are greater than or equal to a given key.
+
+
+24. Write a Java program to get a portion of a map whose keys are greater than a given key.
+
+
+25. Write a Java program to get a key-value mapping associated with the least key greater than or equal to the given key. Return null if there is no such key.
+
+26. Write a Java program to get the least key greater than or equal to the given key. Returns null if there is no such key.

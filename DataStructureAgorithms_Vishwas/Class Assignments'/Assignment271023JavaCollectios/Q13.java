@@ -1,0 +1,20 @@
+package Assignment271023JavaCollectios;
+
+import java.util.LinkedList;
+
+public class Q13 {
+    public static void main(String[] args) {
+        LinkedList<String> l = new LinkedList<String>();
+        l.add("Violet");
+        l.add("Indigo");
+        l.add("Blue");
+        l.add("Green");
+        l.add("Yellow");
+        l.add("Orange");
+        l.add("Red");
+        System.out.println("The Elements Of This Linked List is : " + l);
+        l.remove(1);
+        l.remove(l.size()-1);
+        System.out.println("The Modified List Is : "+l);
+    }
+}

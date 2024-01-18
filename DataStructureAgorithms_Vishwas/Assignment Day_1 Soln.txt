@@ -1,0 +1,95 @@
+1. Write a program to find factorial of a number.
+Ans.
+class Kulkarni
+{
+	public static void main(String[]args){
+		int n=5;
+		int i,fact=1;
+		for(i=n; i>=1; i--)
+		fact=fact*i;
+		System.out.println("Factorial = "+fact);
+	}
+}
+
+
+2. Write a progrm to find the given number is odd or even
+Ans.class hello
+{
+	public static void main(String [] args){
+		int i, n=5;
+		if(n%2==0)
+		System.out.println("Even");
+		else
+		System.out.println("Odd");	
+}
+}
+
+
+3. Write a program to find give number is prime.
+Ans.
+public class prime {
+    public static void main(String[] args)
+
+    {
+        int i, j, c = 0, n = 4, m = 1;
+        for (j = 2; j < n; j++) {
+            if (n % j == 0)
+                c++;
+        }
+        if (c == 0)
+            System.out.println(n+" is Prime");
+        else
+            System.out.println(n+" is Not Prime");
+
+
+    }
+}
+
+
+4. Write a program to check number is palindrome or not.
+Ans.
+public class Main {
+    public static void main(String[] args)
+    {
+       int num=121, x=num, i, j,a;
+       i=10;
+       int rem=0;
+       while(num!=0)
+       {
+           a=num%10;
+           rem=rem*10+a;
+           num=num/10;
+           //i++;
+       }
+        System.out.println(rem);
+        if(rem==x) System.out.println(rem+" is PALLINDROME");
+        else System.out.println(rem+" is NOT PALLINDROME");
+    }
+}
+
+5. wirte a program to print
+******
+*    *
+*    *
+*    *
+*    *
+******
+
+6. Write a program to print number pattern
+     1 
+    2 2 
+   3 3 3 
+  4 4 4 4 
+ 5 5 5 5 5 
+6 6 6 6 6 6 
+
+7. Write a Java Program to print pattern 
+Number-changing pyramid 
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+16 17 18 19 20 21 
+
+8. Wrie a java program to convert binary number to decimal.

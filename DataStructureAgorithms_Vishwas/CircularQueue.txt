@@ -1,0 +1,132 @@
+Circular Queue :
+
+package DataStructureAgorithms_Vishwas;
+
+public class CircularQueue {
+    private int arr[];
+    private int front,rear;
+    public CircularQueue(){
+        arr=new int[50];
+        front=rear=-1;
+    }
+    public CircularQueue(int s){
+        arr=new int[s];
+        front=rear=-1;
+    }
+    public boolean isFull(){
+        if(((front==0)&&(rear==arr.length-1)) ||(front-rear==1)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean isEmpty(){
+        if(front==-1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public void enQueue(int d){
+        if(isFull()){
+            System.out.println("\nOverFlow");
+            return;
+        }
+        if(front==-1){
+            front=0;
+        }
+        if(rear==arr.length-1){
+            rear=0;
+        }
+        else{
+            rear=rear+1;
+        }
+        arr[rear]=d;
+    }
+    public int deQueue(){
+        int d=-999;
+        if(isEmpty()){
+            System.out.println("\nUnderFlow");
+            return d;
+        }
+        d=arr[front];
+        if(front==rear){
+            front=-1;
+            rear=-1;
+        }
+        else if(front==arr.length-1){
+            front=0;
+        }
+        else{
+            front=front+1;
+        }
+        return d;
+    }
+    public int peek(){
+        if(isEmpty()){
+            return 0;
+        }
+        int d=arr[front];
+        return d;
+    }
+    public void Display(){
+        int i;
+        System.out.println("Your Elements in This Queue is ");
+        for(i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
+
+----------------------------------------------------------------------
+
+Main Function :
+
+
+package DataStructureAgorithms_Vishwas;
+import java.util.*;
+public class UserOfCircularQueue {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int ch,size;
+        System.out.println("Size of Your Queue Is : ");
+        size=sc.nextInt();
+        CircularQueue c=new CircularQueue(size);
+        do{
+            System.out.println("Menu -- \n1.Insert\n2.Delete\n3.Peek\n4.Exit");
+            ch=sc.nextInt();
+            switch(ch){
+                case 1:
+                    int a;
+                    System.out.println("Insert Option was Opted !");
+                    System.out.println("Your EnQueueing Elements are : ");
+                    int i;
+                    for(i=0;i<size;i++){
+                        a=sc.nextInt();
+                        c.enQueue(a);
+                    }
+                    c.Display();
+                    break;
+                case 2:
+                    System.out.println("So You Opted To Delete The Value From The Top Of The Queue : ");
+                    System.out.println(c.deQueue());
+                    break;
+                case 3:
+                    System.out.println("So You Opted To Peek On The Top Element of Your Queue : ");
+                    System.out.println("And That Element in The Top Of The Queue is : "+c.peek());
+                    break;
+                default:
+                    if(ch==4){
+                        System.out.println("So you Opted To Quit !");
+                    }
+                    else{
+                        System.out.println("Seems Like You Need Rest ,As You Cant Read Properly RN !");
+                        ch=4;
+                    }
+                    break;
+            }
+        }while(ch!=4);
+    }
+}

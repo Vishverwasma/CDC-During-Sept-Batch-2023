@@ -1,0 +1,418 @@
+1. You are given an interface AdvancedArithmetic which contains a method signature int divisor_sum(int n). 
+You need to write a class called MyCalculator which implements the interface.
+divisorSum function just takes an integer as input and return the sum of all its divisors. For example divisors of 6 are 1, 2, 3 and 6, so divisor_sum should return 12. 
+The value of n will be at most 1000.
+Solution :-
+......
+
+package Assignment20Oct;
+
+public interface AdvancedArithmetic {
+    public void setNum(int n);
+    public void getNum();
+}
+
+
+......
+
+package Assignment20Oct;
+
+public class MyCalculator implements AdvancedArithmetic{
+    int num;
+    public void setNum(int n){
+        this.num=n;
+    }
+    public void getNum(){
+        int i=1,sum=0;
+        for(i=1;i<num;i++) {
+            if(num%i==0) {
+                sum=sum+i;
+                System.out.println(i);
+            }
+        }
+        System.out.println("The Sum  Of "+num+" divisors is "+sum);
+    }
+}
+
+
+.....
+
+package Assignment20Oct;
+import java.util.*;
+public class Solve extends MyCalculator{
+    public static void main(String[] args) {
+        int number;
+        Scanner in=new Scanner(System.in);
+        number=in.nextInt();
+        MyCalculator mc=new MyCalculator();
+        mc.setNum(number);
+        System.out.println("This number "+number +" is divisible by following : ");
+        mc.getNum();
+    }
+}
+
+
+.....
+
+
+Sample Input
+
+6
+Sample Output
+
+I implemented: AdvancedArithmetic
+12
+=====================================================================================================================
+                                          
+2. What will be the output of the following program?
+interface P
+{
+    String p = "PPPP";
+     
+    String methodP();
+}
+ 
+interface Q extends P
+{
+    String q = "QQQQ";
+     
+    String methodQ();
+}
+ 
+class R implements P, Q
+{
+    public String methodP()
+    {
+        return q+p;
+    }
+     
+    public String methodQ()
+    {
+        return p+q;
+    }
+}
+ 
+public class MainClass 
+{
+    public static void main(String[] args)
+    {
+        R r = new R();
+         
+        System.out.println(r.methodP());
+         
+        System.out.println(r.methodQ());
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ans:- 
+QQQQPPPP
+PPPPQQQQ
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+==================================================================================
+3. What will be the output of the following program?
+class A implements B
+{   
+    public int methodB(int i)
+    {
+        return i =+ i * i;
+    }
+}
+ 
+interface B
+{
+    int methodB(int i);
+}
+ 
+public class MainClass 
+{
+    public static void main(String[] args)
+    {
+        B b = new A();
+         
+        System.out.println(b.methodB(2));
+    }
+}
+
+===============================================================================
+Answer :-
+6
+
+===============================================================================
+4.  Write a Java program to create a Animal interface with a method called bark() that takes no arguments and returns void. Create a Dog class that implements Animal and overrides speak() to print "Dog is barking".
+Ans :-
+
+....
+package Assignment20Oct;
+
+public interface Animal {
+    public void Bark();
+}
+
+....
+package Assignment20Oct;
+
+public class AnimalDog implements Animal{
+    @Override
+    public void Bark() {
+        System.out.println("Dog Is Barking ! ");
+    }
+}
+
+....
+package Assignment20Oct;
+
+public class AnimalMain {
+    public static void main(String[] args) {
+        AnimalDog ad=new AnimalDog();
+        ad.Bark();
+    }
+}
+
+===================================================================================
+(X)5.  Write a Java programming to create a banking system with three classes - Bank Account, SavingsAccount, and CurrentAccount. The bank should have a list of accounts and methods for adding them. Accounts should be an interface with methods to deposit, withdraw, calculate interest, and view balances. SavingsAccount and CurrentAccount should implement the Account interface and have their own unique methods
+
+Ans:-
+...............................
+ClassBank::
+
+package BankSystem;
+import java.util.*;
+public class Bank {
+    public static void main(String[] args) {
+
+        float interest, balance, deposit, withdraw;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Your Expected Balance Amount of : ");
+        balance=sc.nextFloat();
+
+
+        BankAccount ba1 = new SavingsAccount();
+        ba1.setInterest(balance);
+        ba1.setBalance(balance);
+        ba1.DisplayAccountDetails();
+//        interest=ba1,setInterest(balance);
+//        balance=ba1.setBalance(interest,balance);
+
+
+        System.out.println("Deposit Amount of : ");
+        deposit = sc.nextFloat();
+        System.out.println("WithDrawl Amount of : ");
+        withdraw = sc.nextFloat();
+        System.out.println("When the balance is : "+balance+" so the ");
+        BankAccount ba2 = new CurrentAccount();
+        ba2.setBalance(balance);
+        ba2.setDeposit(deposit);
+        ba2.setWithdraw(withdraw);
+        ba2.setBalance(deposit,withdraw);
+        ba2.DisplayBankBalance();
+    }
+
+}
+...............................
+InterfaceBankAccount::
+
+package BankSystem;
+
+public interface BankAccount {
+    public void setInterest(float balance);
+    public void setBalance(float interest);
+    public void DisplayAccountDetails();
+    public void setDeposit(float deposit);
+    public void setWithdraw(float withdraw);
+    public void setBalance(float deposit,float withdraw);
+    public void DisplayBankBalance();
+}
+...............................
+ClassSavingsAccount::
+
+package BankSystem;
+
+public class SavingsAccount implements BankAccount{
+
+     float interest,balance=15000;
+    public void setDeposit(float deposit){}
+    public void setWithdraw(float withdraw){}
+    public void setBalance(float deposit,float withdraw){}
+    public void DisplayBankBalance(){}
+
+
+    public void setBalance(float balance){
+        this.balance=balance;
+    }
+
+
+    public void setInterest(float balance){
+
+        this.interest=this.balance*0.1f;
+    }
+
+
+    public void getBalance(){
+        this.balance=this.balance+this.interest;
+    }
+
+
+    public void DisplayAccountDetails(){
+        System.out.println(" interest of "+interest+" and Balance in Saving Account is "+balance);
+    }
+}
+
+...............................
+ClassCurrentAccount::
+
+package BankSystem;
+
+public class CurrentAccount implements BankAccount{
+    float balance,deposit,withdraw;
+    public void setInterest(float balance){}
+    public void DisplayAccountDetails(){}
+    public void setBalance(float interest){
+        this.balance=balance;
+    }
+    public void setDeposit(float deposit){
+        this.deposit=deposit;
+    }
+    public void setWithdraw(float withdraw){
+        this.withdraw=withdraw;
+    }
+    public void setBalance(float deposit,float withdraw){
+        this.balance=this.balance+deposit-withdraw;
+    }
+    public void DisplayBankBalance(){
+        System.out.println("The Withdrawl Amount of "+withdraw +" and The deposit amount of "+deposit+" That made the Balance to raise to amount "+balance);
+    }
+}
+
+...............................
+
+
+========================================================================================
+
+(X)6.What will be output of following program.
+interface ABC
+{
+    void methodOne();
+}
+ 
+interface PQR extends ABC
+{   
+    void methodTwo();
+}
+ 
+abstract class XYZ implements PQR
+{
+    public void methodOne()
+    {
+        methodTwo();
+    }
+}
+ 
+class MNO extends XYZ
+{
+    public void methodTwo()
+    {
+        methodOne();
+    }
+}
+ 
+public class MainClass
+{
+    public static void main(String[] args)
+    {
+        ABC abc = new MNO();
+         
+        abc.methodOne();
+    }
+}
+
+==============================================================================
+7. Write a Java program to create an interface Playable with a method play() that takes no arguments and returns void. Create three classes Football, Volleyball, and Basketball that implement the Playable interface and override the play() method to play the respective sports.
+
+Ans:-
+package Assignment20Oct;
+
+public interface Play {
+    public void play();
+}
+
+
+package Assignment20Oct;
+
+public class Football  implements Play{
+    public void play(){
+        System.out.println("Hi This Football Club and I Play FootBall !");
+    }
+}
+
+
+package Assignment20Oct;
+
+public class VolleyBall  implements Play{
+    public void play(){
+        System.out.println("Hi This VolleyBall Club and I Play VolleyBall !");
+    }
+}
+
+
+package Assignment20Oct;
+
+public class BasketBall implements Play{
+    public void play(){
+        System.out.println("Hi This BasketBall Club and I Play BasketBall !");
+    }
+}
+
+
+package Assignment20Oct;
+
+public class PlayMain{
+
+    public static void main(String[] args) {
+        Play p1=new Football();
+        p1.play();
+        Play p2=new BasketBall();
+        p2.play();
+        Play p3=new VolleyBall();
+        p3.play();
+    }
+}
+
+===============================================================================
+8. An abstract class has a construtor which prints "This is constructor of abstract class", an abstract method named 'a_method' and a non-abstract method which prints "This is a normal method of abstract class". 
+A class 'SubClass' inherits the abstract class and has a method named 'a_method' which prints "This is abstract method". 
+Now create an object of 'SubClass' and call the abstract method and the non-abstract method. 
+Ans:-
+
+
+....
+package Assignment20Oct;
+
+public abstract class AbstractXYZ {
+    public AbstractXYZ(){
+        System.out.println("This is a Constructor From Abstract Class ! ");
+    }
+    public abstract void a_method();
+    public void b_method(){
+        System.out.println("This is a normal method of Abstract Class ! ");
+    }
+
+}
+
+
+....
+package Assignment20Oct;
+
+public class SubClass extends AbstractXYZ{
+    public void a_method(){
+        System.out.println("This is the Abstract Method ! ");
+    }
+
+    public static void main(String[] args) {
+        SubClass a=new SubClass();
+        a.a_method();
+        a.b_method();
+
+    }
+}
+
