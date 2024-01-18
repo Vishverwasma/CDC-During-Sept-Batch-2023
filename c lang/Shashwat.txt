@@ -1,0 +1,185 @@
+ASSIGNMENT-1
+
+Q1.The distance between two cities (in km.) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.
+
+#include<stdio.h>
+int main()
+{
+	int d;
+	printf("Enter distance in km:");
+	scanf("%d",&d);
+	printf("Distance in m=%d\n",d*1000);
+	printf("Distance in feet=%d\n",d*3280);
+	printf("Distance in inches=%d\n",d*39370);
+	printf("Distance in centimeter=%d\n",d*100*1000);
+	
+}
+
+
+Q2. Ramesh’s basic salary is input through the keyboard. His dearness allowance is 40% of basic salary, and house rent allowance is 20% of basic salary. Write a program to calculate his gross salary
+
+#include<stdio.h>
+int main()
+{
+	int bs;
+	printf("Enter basic salary:");
+	scanf("%d",&bs);
+	printf("Gross salary=%d",bs+bs*40/100+bs*20/100);
+}
+
+
+Q3. If a five-digit number is input through the keyboard, write a program to calculate the sum of its digits. (Hint: Use the modulus operator ‘%’)
+
+#include<stdio.h>
+int main()
+{
+	int a,n,s=0;
+	printf("Enter number:");
+	scanf("%d",&n);
+    while(n!=0)
+    {
+    	a=n%10;
+    	s=s+a;
+    	n=n/10;
+	}
+	printf("Sum of digits=%d",s);
+	
+}
+
+
+Q4. Wind chill factor is the felt air temperature on exposed skin due to wind. The wind chill temperature is always lower than the air temperature, and is calculated as per the following formula: wcf = 35.74 + 0.6215t + ( 0.4275t - 35.75 ) * v 0.16 where t is the temperature and v is the wind velocity. Write a program to receive values of t and v and calculate wind chill factor (wcf).
+
+#include<stdio.h>
+int main()
+{
+	float v,t;
+	printf("Enter values of v and t:");
+	scanf("%f%f",&v,&t);
+	printf("Wind chill factor (wcf)=%f",35.74+0.6215*t+(0.4257*t-35.75)*v*0.16);
+}
+
+
+Q5. Two numbers are input through the keyboard into two locations C and D. Write a program to interchange the contents of C and D.
+
+#include<stdio.h>
+int main()
+{
+	int C,D,A;
+	printf("Enter C:");
+	scanf("%d",&C);
+	printf("Enter D:");
+	scanf("%d",&D);
+	A=C;
+	C=D;
+	D=A;
+	printf("New value of C is:%d\n",C);
+	printf("New value of D is:%d",D);
+	
+}
+
+Q6.
+
+#include<stdio.h>
+int main()
+{
+	int c=0,n;
+	printf("Enter number:");
+	scanf("%d",&n);
+	int a,m=n,i;
+	for(i=1;i<=5;i++)
+	{
+		a=n%10;
+		c=c*10+a;
+		n=n/10;
+	}
+	if(c==m){
+		printf("\n The Num is Palendrome");
+	}
+	else{
+		printf("\n The Num is not Palendrome!");
+	}
+	
+}
+
+
+Q7.
+
+#include<stdio.h>
+int main()
+{
+	float c;
+	int g,h,t;
+	printf("Enter hardness, carbon content and tensile strength:");
+	scanf("%d%f%d",&h,&c,&t);
+	if(h>50&&c<0.7)
+	{
+		printf("Grade 9");
+	}
+	else if(c<0.7&&t>5600)
+	{
+		printf("Grade 8");
+	}
+	else if(h>50&&t>5600)
+	{
+		printf("Grade 7");
+	}
+	else if(h>50||c<0.7||t>5600)
+	{
+		printf("Grade 6");
+	}
+	else 
+	{
+		printf("Grade 5");
+	}
+	return 0;
+}
+
+Q8.
+
+#include<stdio.h>
+int main()
+{
+	int l,b,h,a,p;
+	printf("Enter length, breadth:");
+	scanf("%d%d",&l,&b);
+	p=2*(l+b);
+	a=l*b;
+	if(a>p)
+	{
+		printf("Area is greater than perimeter");
+	}
+	else
+	{
+		printf("Area is not greater than perimeter");
+	}
+}
+
+
+___________________________________________________________________________
+
+DAY-2
+
+Q1.
+
+#include<stdio.h>
+int main()
+{
+	int i,j,h,a[10],pay,s=0;
+	for(i=0;i<10;i++)
+	{
+		printf("Enter working hours of employee %d:",i+1);
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<10;i++)
+	{
+		a[i]=a[i]-40;
+		if(a[i]>0)
+		{
+			pay=a[i]*12;
+			s=s+pay;
+		}
+		
+	}
+	printf("Total pay is=%d",s);
+	
+}
